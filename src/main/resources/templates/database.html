@@ -53,8 +53,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <br>
         <div></div>
         <div align="center">Database KTP Indonesia</div>
-        <a href="/create">Data Baru</a>
-        <a href="/search">Cari Data</a>
+        <a th:href="@{/tambah}" class="databaru">Data Baru</a>
+<!--        <a href="/search">Cari Data</a>-->
         <div class="table-responsive">
             <table class="table align-middle">
                 <tr>
@@ -70,9 +70,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <td th:text="${#calendars.format(godata.tgllahir,'dd-MMM-yyyy')}"></td>
                     <td th:text="${godata.alamat}"></td>
                     <td>
-                        <a href="/detail">Detail</a>
-                        <a href="/edit">Edit</a>
-                        <a href="/delete">Delete</a>
+                        <a th:href="@{/detail/{id}(id=${godata.id})}">Detail</a>
+                        <a th:href="@{/edit/{id}(id=${godata.id})}">Edit</a>
+                        <a th:href="@{/hapus/{id}(id=${godata.id})}" onclick="return confirm('Apakah Anda yakin?')">Delete</a>
                     </td>
                 </tr>
             </table>
